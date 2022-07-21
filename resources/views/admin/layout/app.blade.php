@@ -10,6 +10,7 @@
 <meta name="author" content="">
 
 <title>Admin Panel | Clothes Store</title>
+<link rel="icon" type="text/css" href="{{ asset('icon.png') }}">
 
 <!-- Bootstrap Core CSS -->
     
