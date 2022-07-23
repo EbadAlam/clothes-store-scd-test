@@ -45,6 +45,7 @@ class DashboardController extends Controller
         $category->delete();
         foreach ($products as $key => $product) {
             $product->delete();
+            unlink($product->image);
         }
         foreach ($carts as $key => $cart) {
             $cart->delete();

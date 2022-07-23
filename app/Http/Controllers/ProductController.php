@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -49,8 +50,11 @@ class ProductController extends Controller
     public function delete (Request $request,$id)
     {
         $product = Product::findOrFail($id);
-        // dd($product);
+        // $carts = Product::with('carts')->findOrFail($id)->carts;
+        $cart = Cart::findOrFail($product->id);
+        // dd($carts);
         $product->delete();
+        $cart->delete();
         unlink($product->image);
         return redirect()->back()->with('success', 'Product Deleted Successfully');
     }
