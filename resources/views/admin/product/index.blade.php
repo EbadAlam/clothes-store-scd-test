@@ -43,7 +43,7 @@
         <tbody>
             @foreach ($products as $key => $single_product)
             <tr>
-                <td>{{ $single_product->id }}</td>
+                <td>{{ $key + 1 }}</td>
                 <td>{{ $single_product->name }}</td>
                 <td>{{ $single_product->price }}</td>
                 <td>{{ $single_product->description }}</td>
@@ -58,7 +58,11 @@
                     <a href="{{ route('producteditpage', $single_product->id) }}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                    <a href="{{ route('deleteproduct', $single_product->id) }}" class="btn btn-danger" onclick="return confirm('Are Your Sure')";>Delete</a>
+                    <form action="{{ route('deleteproduct', $single_product->id) }}" method="POST">
+                    @csrf
+                    @method("DELETE")
+                    <button class="btn btn-danger" onclick="return confirm('Are Your Sure')";>Delete</button>
+                    </form>
                 </td>
             </tr>               
             @endforeach

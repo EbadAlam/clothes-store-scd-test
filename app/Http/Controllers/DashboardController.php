@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
@@ -36,10 +37,18 @@ class DashboardController extends Controller
         return back()->with('success', 'Category Insert Successfully!');
     }
 
-    public function delete($id)
+    public function delete(Request $request,$id)
     {
-        $category_delete = Category::find($id);
-        $category_delete->delete();
+        $category = Category::with('products')->findOrFail($id);
+        $products = Category::with('products')->findOrFail($id)->products;
+        $carts = Category::with('carts')->findOrFail($id)->carts;
+        $category->delete();
+        foreach ($products as $key => $product) {
+            $product->delete();
+        }
+        foreach ($carts as $key => $cart) {
+            $cart->delete();
+        }
         return redirect()->back()->with('success', 'Category Deleted Successfully');
     }
 

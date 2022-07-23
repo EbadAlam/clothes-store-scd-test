@@ -11,7 +11,7 @@ class Product extends Model
     use HasFactory;
     protected $table = 'products';
     protected $guarded = [''];
-    protected $primaryKey = 'product_category_id';   
+    // protected $primaryKey = 'product_category_id';   
   
     public function category()
     {

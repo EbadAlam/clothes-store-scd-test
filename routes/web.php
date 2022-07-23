@@ -42,16 +42,16 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashb
 
 Route::get('/categories', [DashboardController::class, 'categories'])->name('categories');
 Route::post('/categories',[DashboardController::class,'store'])->name('categories_store');
-Route::get('/deletecategory/{id}', [DashboardController::class, 'delete'])->name('deletecategory');
+Route::get('/delete/category/{id}', [DashboardController::class, 'delete'])->name('deletecategory');
 Route::put('/categories/{category}',[DashboardController::class,'update'])->name('categories_update');
 
 // Products Controllers
 
 Route::get('/adminproducts', [ProductController::class, 'adminproducts'])->name('adminproducts');
-Route::get('/createproductpage', [ProductController::class, 'createproductpage'])->name('createproductpage');
-Route::post('/createproduct', [ProductController::class,'createproduct'])->name('createproduct');
-Route::get('/deleteproduct/{id}', [ProductController::class, 'delete'])->name('deleteproduct');
-Route::get('producteditpage{product}',[ProductController::class,'producteditpage'])->name('producteditpage');
+Route::get('/create/product', [ProductController::class, 'createproductpage'])->name('createproductpage');
+Route::post('/create/product', [ProductController::class,'createproduct'])->name('createproduct');
+Route::delete('/delete/product/{id}', [ProductController::class, 'delete'])->name('deleteproduct');
+Route::get('product/edit/{product}',[ProductController::class,'producteditpage'])->name('producteditpage');
 Route::put('/product/edit/{product}',[ProductController::class,'update'])->name('product_update');
 
 Route::get('/user',[UserController::class,'index'])->name('user');

@@ -12,8 +12,8 @@
   
   <!-- Product grid -->
 <div class="w3-row w3-grayscale">
+        <h2>All Products</h2>
     @foreach ($product as $single_product)
-        
 <div class="w3-col l3 s6">
   <div class="w3-container">
     <div class="w3-display-container">

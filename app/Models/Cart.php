@@ -10,5 +10,10 @@ class Cart extends Model
     use HasFactory;
     protected $table = 'carts';
     protected $guarded = [''];
-    protected $primaryKey = 'product_category_id'; 
+    // protected $primaryKey = 'product_category_id'; 
+
+    public function cart_category()
+    {
+        return $this->belongsTo(Category::class,'product_category_id', 'cat_id');
+    }
 }

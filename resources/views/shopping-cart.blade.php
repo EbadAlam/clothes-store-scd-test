@@ -40,7 +40,7 @@
             <td>{{ $item->name }}</td>
             <td>{{ $item->description }}</td>
             <td>{{ $item->price }}</td>
-            <td><a href="{{ route('deletecartitem', $item->product_category_id) }}" class="btn btn-danger" onclick="return confirm('Are you Sure!')";><i class="fa fa-trash"  ></i></a></td>
+            <td><a href="{{ route('deletecartitem', $item->id) }}" class="btn btn-danger" onclick="return confirm('Are you Sure!')";><i class="fa fa-trash"  ></i></a></td>
         </tr>
         @endforeach
         </tbody>

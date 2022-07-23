@@ -65,7 +65,7 @@
                     <tbody>
                         @foreach ($categories as $key => $single_category)
                             <tr>
-                                <td>{{ $single_category->cat_id }}</td>
+                                <td>{{ $key + 1 }}</td>
                                 <td>{{ $single_category->cat_title }}</td>
                                 <td>
                                     <a href="{{ route('categories', ['cat_id' => $single_category->cat_id]) }}"

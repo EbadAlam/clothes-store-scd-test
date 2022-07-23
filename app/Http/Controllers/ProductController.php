@@ -46,10 +46,12 @@ class ProductController extends Controller
         return redirect()->route('adminproducts')->with(['success' => 'Product Created Succesfully']);
     }
 
-    public function delete($id)
+    public function delete (Request $request,$id)
     {
-        $product_delete = Product::find($id);
-        $product_delete->delete();
+        $product = Product::findOrFail($id);
+        // dd($product);
+        $product->delete();
+        unlink($product->image);
         return redirect()->back()->with('success', 'Product Deleted Successfully');
     }
 

@@ -73,9 +73,9 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
           </form> 
           <a href="{{route('dashboard')}}" class="btn btn-info" style="margin-left: 380px; margin-top: -75px">Dashboard</a>
           
-          <a href="{{ route('shopping-cart-page') }}" style="margin: -570px;"><i class="fa fa-shopping-cart">({{ $total }})</i></a>
+          <a href="{{ route('shopping-cart-page') }}" style="margin: -500px;"><i class="fa fa-shopping-cart">({{ $total }})</i></a>
           
-          @else
+      @else
           
           <a href="/login" class="btn btn-info">Login</a>
           
